@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Medio Medical Supply | Quality Healthcare Products</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;color:#222;background:#fff;overflow-x:hidden}
+
+/* ── VARIABLES ── */
+:root{
+  --blue:#003580;
+  --blue2:#0055c8;
+  --teal:#00a8b5;
+  --red:#e63b2e;
+  --light:#f0f6ff;
+  --grey:#f5f7fb;
+  --dark:#111c2d;
+  --muted:#6b778c;
+  --white:#ffffff;
+}
+
+/* ── TOP BAR ── */
+.topbar{
+  background:var(--blue);
+  color:rgba(255,255,255,.85);
+  font-size:.78rem;
+  padding:7px 6%;
+  display:flex;justify-content:space-between;align-items:center;gap:1rem;
+  flex-wrap:wrap;
+}
+.topbar a{color:inherit;text-decoration:none}
+.topbar a:hover{color:#fff}
+.topbar-left,.topbar-right{display:flex;gap:1.5rem;align-items:center}
+.topbar i{margin-right:5px;color:var(--teal)}
+
+/* ── NAV ── */
+header{
+  position:sticky;top:0;z-index:999;
+  background:#fff;
+  box-shadow:0 2px 16px rgba(0,0,0,.09);
+}
+nav{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 6%;height:72px;
+}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-icon{
+  width:44px;height:44px;background:var(--blue);border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:1.25rem;font-weight:800;letter-spacing:-1px;
+}
+.logo-name{font-size:1.22rem;font-weight:700;color:var(--blue);line-height:1.1}
+.logo-name span{color:var(--teal)}
+.logo-sub{font-size:.65rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+
+.nav-menu{display:flex;list-style:none;gap:.25rem;align-items:center}
+.nav-menu a{
+  color:#333;text-decoration:none;font-size:.88rem;font-weight:500;
+  padding:6px 14px;border-radius:6px;transition:background .18s,color .18s;
+  white-space:nowrap;
+}
+.nav-menu a:hover{background:var(--light);color:var(--blue)}
+.nav-menu .active a{color:var(--blue);font-weight:600}
+
+.nav-btn{
+  background:var(--red);color:#fff !important;
+  padding:9px 22px !important;border-radius:7px !important;
+  font-weight:600 !important;transition:background .18s !important;
+}
+.nav-btn:hover{background:#c42d22 !important}
+
+.hamburger{display:none;background:none;border:none;font-size:1.5rem;color:var(--blue);cursor:pointer}
+
+/* ── HERO ── */
+.hero{
+  position:relative;height:92vh;min-height:560px;
+  display:flex;align-items:center;
+  overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=1600&q=80') center/cover no-repeat;
+}
+.hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(100deg,rgba(0,31,80,.88) 0%,rgba(0,53,128,.68) 50%,rgba(0,0,0,.2) 100%);
+}
+.hero-content{
+  position:relative;z-index:2;
+  padding:0 6%;max-width:700px;
+}
+.hero-pill{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(0,168,181,.18);border:1px solid rgba(0,168,181,.5);
+  color:#7ee8f0;font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  padding:5px 14px;border-radius:30px;margin-bottom:1.4rem;
+}
+.hero h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.2rem,5vw,3.6rem);font-weight:700;
+  color:#fff;line-height:1.18;margin-bottom:1.2rem;
+}
+.hero h1 span{color:var(--teal)}
+.hero p{
+  color:rgba(255,255,255,.78);font-size:1rem;font-weight:300;
+  line-height:1.8;max-width:520px;margin-bottom:2rem;
+}
+.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-primary{
+  background:var(--teal);color:#fff;text-decoration:none;
+  padding:13px 30px;border-radius:8px;font-weight:600;font-size:.92rem;
+  transition:background .18s,transform .15s;display:inline-flex;align-items:center;gap:8px;
+}
+.btn-primary:hover{background:#008a96;transform:translateY(-2px)}
+.btn-outline{
+  background:transparent;color:#fff;text-decoration:none;
+  padding:13px 30px;border-radius:8px;font-weight:500;font-size:.92rem;
+  border:2px solid rgba(255,255,255,.5);
+  transition:border-color .18s,background .18s;
+}
+.btn-outline:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+
+/* hero stats ribbon */
+.hero-stats{
+  position:absolute;bottom:0;left:0;right:0;z-index:3;
+  background:rgba(0,31,80,.92);backdrop-filter:blur(8px);
+  display:flex;justify-content:center;flex-wrap:wrap;gap:0;
+}
+.hero-stats a{text-decoration:none;display:contents}
+.hero-stat{
+  padding:20px 40px;text-align:center;color:#fff;
+  border-right:1px solid rgba(255,255,255,.1);flex:1;min-width:160px;
+}
+.hero-stat:last-child{border-right:none}
+.hero-stat-num{
+  font-family:'Playfair Display',serif;
+  font-size:1.9rem;font-weight:700;color:var(--teal);display:block;line-height:1;
+}
+.hero-stat-lbl{font-size:.7rem;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.08em;margin-top:4px}
+
+/* ── SECTION SHARED ── */
+section{padding:90px 6%}
+.sec-label{
+  display:inline-block;color:var(--teal);font-size:.72rem;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;margin-bottom:.6rem;
+}
+.sec-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.7rem,3vw,2.4rem);font-weight:700;color:var(--blue);
+  line-height:1.25;margin-bottom:.9rem;
+}
+.sec-desc{color:var(--muted);font-size:.95rem;line-height:1.8;max-width:560px}
+
+/* ── SERVICES ── */
+.services{background:var(--grey)}
+.services-top{
+  display:flex;justify-content:space-between;align-items:flex-end;
+  flex-wrap:wrap;gap:1.5rem;margin-bottom:3rem;
+}
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:1.5rem;
+}
+.service-card{
+  background:#fff;border-radius:14px;overflow:hidden;
+  border:1px solid rgba(0,0,0,.07);
+  transition:transform .22s,box-shadow .22s;
+}
+.service-card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(0,53,128,.12)}
+.service-img{
+  width:100%;height:180px;object-fit:cover;display:block;
+}
+.service-body{padding:1.4rem}
+.service-icon{
+  width:44px;height:44px;background:var(--light);border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--blue);font-size:1.1rem;margin-bottom:1rem;
+}
+.service-card h3{font-size:1rem;font-weight:600;color:var(--blue);margin-bottom:.4rem}
+.service-card p{font-size:.83rem;color:var(--muted);line-height:1.65;margin-bottom:1rem}
+.read-more{
+  color:var(--teal);font-size:.82rem;font-weight:600;text-decoration:none;
+  display:inline-flex;align-items:center;gap:5px;
+}
+.read-more:hover{color:var(--blue)}
+
+/* ── ABOUT ── */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.about-img-wrap{position:relative;border-radius:16px;overflow:hidden}
+.about-img-wrap img{width:100%;height:480px;object-fit:cover;display:block;border-radius:16px}
+.about-badge{
+  position:absolute;bottom:24px;left:24px;
+  background:var(--blue);color:#fff;
+  padding:14px 20px;border-radius:12px;
+  box-shadow:0 8px 24px rgba(0,0,0,.25);
+}
+.about-badge strong{font-size:1.5rem;display:block;line-height:1;font-family:'Playfair Display',serif}
+.about-badge span{font-size:.72rem;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:.06em}
+.about-content .sec-desc{margin-bottom:1.8rem}
+.check-list{list-style:none;display:flex;flex-direction:column;gap:.8rem;margin-bottom:2rem}
+.check-list li{
+  display:flex;align-items:flex-start;gap:12px;
+  font-size:.9rem;color:#333;
+}
+.check-list li i{color:var(--teal);font-size:.9rem;margin-top:3px;flex-shrink:0}
+
+/* ── WHY US ── */
+.whyus{background:var(--blue);padding:90px 6%}
+.whyus .sec-label{color:var(--teal)}
+.whyus .sec-title{color:#fff}
+.whyus .sec-desc{color:rgba(255,255,255,.65);margin-bottom:3rem}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem}
+.why-card{
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:14px;padding:2rem;
+  transition:background .2s;
+}
+.why-card:hover{background:rgba(255,255,255,.11)}
+.why-card i{font-size:1.8rem;color:var(--teal);margin-bottom:1rem;display:block}
+.why-card h4{color:#fff;font-size:.98rem;font-weight:600;margin-bottom:.5rem}
+.why-card p{color:rgba(255,255,255,.55);font-size:.83rem;line-height:1.65}
+
+/* ── CLIENTS / WHO WE SERVE ── */
+.clients{background:var(--grey)}
+.clients-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:1.5rem;margin-top:2.5rem;
+}
+.client-card{
+  background:#fff;border-radius:14px;padding:2rem 1.5rem;
+  text-align:center;border:1px solid rgba(0,0,0,.07);
+  transition:box-shadow .2s;
+}
+.client-card:hover{box-shadow:0 8px 28px rgba(0,53,128,.1)}
+.client-icon{
+  width:60px;height:60px;border-radius:50%;
+  background:var(--light);display:flex;align-items:center;justify-content:center;
+  margin:0 auto 1rem;font-size:1.5rem;color:var(--blue);
+}
+.client-card h4{font-size:.95rem;font-weight:600;color:var(--blue);margin-bottom:.4rem}
+.client-card p{font-size:.82rem;color:var(--muted);line-height:1.6}
+
+/* ── TEAM ── */
+.team-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:1.5rem;margin-top:2.5rem;
+}
+.team-card{border-radius:14px;overflow:hidden;background:#fff;border:1px solid rgba(0,0,0,.07)}
+.team-card img{width:100%;height:220px;object-fit:cover;display:block}
+.team-body{padding:1.2rem}
+.team-body h4{font-size:.95rem;font-weight:600;color:var(--blue);margin-bottom:.2rem}
+.team-body span{font-size:.78rem;color:var(--teal);font-weight:500}
+.team-socials{margin-top:.7rem;display:flex;gap:.5rem}
+.team-socials a{
+  width:28px;height:28px;border-radius:50%;
+  background:var(--light);color:var(--blue);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.72rem;text-decoration:none;transition:background .18s,color .18s;
+}
+.team-socials a:hover{background:var(--blue);color:#fff}
+
+/* ── GALLERY / PRODUCTS SHOWCASE ── */
+.gallery{background:var(--grey)}
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  grid-template-rows:auto auto;
+  gap:1rem;margin-top:2.5rem;
+}
+.gallery-item{border-radius:12px;overflow:hidden;position:relative;cursor:pointer}
+.gallery-item img{width:100%;height:200px;object-fit:cover;display:block;transition:transform .35s}
+.gallery-item:hover img{transform:scale(1.05)}
+.gallery-item.large{grid-column:span 2;grid-row:span 2}
+.gallery-item.large img{height:100%;min-height:410px}
+.gallery-overlay{
+  position:absolute;inset:0;background:rgba(0,31,80,.55);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;transition:opacity .3s;
+}
+.gallery-item:hover .gallery-overlay{opacity:1}
+.gallery-overlay i{color:#fff;font-size:1.8rem}
+
+/* ── TESTIMONIALS ── */
+.testi{background:var(--blue);padding:90px 6%}
+.testi .sec-label{color:var(--teal)}
+.testi .sec-title{color:#fff;margin-bottom:2.5rem}
+.testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
+.testi-card{
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);
+  border-radius:14px;padding:2rem;
+}
+.testi-stars{color:#ffc83d;font-size:.85rem;margin-bottom:.8rem}
+.testi-text{color:rgba(255,255,255,.8);font-size:.88rem;line-height:1.75;margin-bottom:1.2rem;font-style:italic}
+.testi-author{display:flex;align-items:center;gap:10px}
+.testi-avatar{
+  width:40px;height:40px;border-radius:50%;object-fit:cover;border:2px solid var(--teal);
+}
+.testi-name{color:#fff;font-size:.85rem;font-weight:600}
+.testi-role{color:rgba(255,255,255,.45);font-size:.75rem}
+
+/* ── CONTACT ── */
+.contact-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:4rem;align-items:start}
+.contact-details .sec-desc{margin-bottom:2rem}
+.info-items{display:flex;flex-direction:column;gap:1.2rem}
+.info-item{display:flex;gap:14px;align-items:flex-start}
+.info-item a{color:inherit;text-decoration:none}
+.info-item a:hover{color:var(--teal)}
+.info-icon{
+  width:44px;height:44px;min-width:44px;border-radius:10px;
+  background:var(--light);display:flex;align-items:center;justify-content:center;
+  color:var(--blue);font-size:1rem;
+}
+.info-text strong{display:block;font-size:.85rem;color:var(--blue);font-weight:600;margin-bottom:2px}
+.info-text span{font-size:.83rem;color:var(--muted)}
+.map-wrap{
+  margin-top:2rem;border-radius:12px;overflow:hidden;
+  border:1px solid rgba(0,0,0,.1);
+}
+.map-wrap iframe{width:100%;height:230px;display:block;border:none}
+
+/* FORM */
+.contact-form-wrap{
+  background:var(--grey);border-radius:16px;padding:2.5rem;
+}
+.contact-form-wrap h3{
+  font-family:'Playfair Display',serif;
+  font-size:1.4rem;color:var(--blue);margin-bottom:1.5rem;
+}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.fg{display:flex;flex-direction:column;gap:5px;margin-bottom:1rem}
+.fg label{font-size:.78rem;font-weight:600;color:var(--blue);letter-spacing:.03em}
+.fg input,.fg select,.fg textarea{
+  padding:11px 14px;
+  border:1.5px solid rgba(0,0,0,.1);border-radius:8px;
+  font-family:'Poppins',sans-serif;font-size:.87rem;color:#222;
+  background:#fff;outline:none;transition:border-color .2s;width:100%;
+}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--teal)}
+.fg textarea{resize:vertical;min-height:110px}
+.form-btn{
+  width:100%;background:var(--blue);color:#fff;border:none;
+  padding:14px;border-radius:8px;font-family:'Poppins',sans-serif;
+  font-size:.92rem;font-weight:600;cursor:pointer;
+  transition:background .2s;margin-top:.3rem;
+}
+.form-btn:hover{background:var(--teal)}
+
+/* ── FOOTER ── */
+footer{background:var(--dark);padding:70px 6% 28px;color:rgba(255,255,255,.5)}
+.footer-top{
+  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;
+  margin-bottom:3rem;padding-bottom:3rem;
+  border-bottom:1px solid rgba(255,255,255,.07);
+}
+.footer-logo{margin-bottom:1rem}
+.footer-logo .logo-name{color:#fff}
+.footer-about p{font-size:.84rem;line-height:1.75;margin-top:.8rem;max-width:270px}
+.footer-socials{display:flex;gap:.6rem;margin-top:1.4rem}
+.footer-socials a{
+  width:34px;height:34px;border-radius:8px;
+  background:rgba(255,255,255,.08);color:rgba(255,255,255,.6);
+  display:flex;align-items:center;justify-content:center;font-size:.85rem;
+  text-decoration:none;transition:background .18s,color .18s;
+}
+.footer-socials a:hover{background:var(--teal);color:#fff}
+.footer-col h5{
+  color:#fff;font-size:.82rem;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;margin-bottom:1.1rem;
+}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.55rem}
+.footer-col ul a{
+  color:rgba(255,255,255,.45);text-decoration:none;font-size:.83rem;
+  transition:color .18s;
+}
+.footer-col ul a:hover{color:var(--teal)}
+.footer-bottom{
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:1rem;font-size:.78rem;
+}
+.footer-bottom a{color:rgba(255,255,255,.35);text-decoration:none}
+.footer-bottom a:hover{color:#fff}
+
+/* ── CTA BANNER ── */
+.cta-banner{
+  background:linear-gradient(100deg,var(--teal) 0%,var(--blue2) 100%);
+  padding:70px 6%;text-align:center;color:#fff;
+}
+.cta-banner h2{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.8rem,3.5vw,2.6rem);margin-bottom:1rem;
+}
+.cta-banner p{color:rgba(255,255,255,.8);font-size:.97rem;max-width:540px;margin:0 auto 2rem;line-height:1.75}
+.cta-btns{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
+.btn-white{
+  background:#fff;color:var(--blue);text-decoration:none;
+  padding:13px 30px;border-radius:8px;font-weight:600;font-size:.92rem;
+  transition:transform .15s,box-shadow .15s;
+}
+.btn-white:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.15)}
+.btn-woutline{
+  background:transparent;color:#fff;text-decoration:none;
+  padding:13px 30px;border-radius:8px;font-weight:500;font-size:.92rem;
+  border:2px solid rgba(255,255,255,.6);transition:border-color .18s;
+}
+.btn-woutline:hover{border-color:#fff}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .about-grid,.contact-grid{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr 1fr}
+  .gallery-grid{grid-template-columns:1fr 1fr}
+  .gallery-item.large{grid-column:span 1;grid-row:span 1}
+  .gallery-item.large img{min-height:200px;height:200px}
+}
+@media(max-width:640px){
+  .topbar,.hero-stats,.nav-menu{display:none}
+  .hamburger{display:block}
+  .footer-top{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  .gallery-grid{grid-template-columns:1fr}
+  section{padding:60px 5%}
+  .hero{height:80vh}
+}
+
+/* ── MOBILE MENU ── */
+.mobile-menu{
+  display:none;position:fixed;inset:0;z-index:1000;
+  background:rgba(0,0,0,.5);
+}
+.mobile-menu.open{display:flex}
+.mobile-panel{
+  background:#fff;width:280px;height:100%;padding:2rem;
+  display:flex;flex-direction:column;gap:1rem;
+  box-shadow:4px 0 24px rgba(0,0,0,.15);
+}
+.mobile-panel a{
+  color:#333;text-decoration:none;font-size:.95rem;font-weight:500;
+  padding:10px 0;border-bottom:1px solid rgba(0,0,0,.06);
+}
+.mobile-panel a:hover{color:var(--blue)}
+.mobile-close{
+  background:none;border:none;font-size:1.4rem;cursor:pointer;color:#333;
+  align-self:flex-end;margin-bottom:.5rem;
+}
+
+/* ── SCROLL REVEAL ── */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .55s ease,transform .55s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-left">
+    <span><i class="fa fa-phone"></i> <a href="tel:+254726618187">+254 726 618 187</a></span>
+    <span><i class="fa fa-envelope"></i> <a href="mailto:info@mediomedicalsupply.co.ke">info@mediomedicalsupply.co.ke</a></span>
+  </div>
+  <div class="topbar-right">
+    <span><i class="fa fa-clock"></i> Mon – Fri: 8:00 AM – 5:00 PM</span>
+    <span><i class="fa fa-map-marker-alt"></i> Parklands, Nairobi</span>
+  </div>
+</div>
+
+<header>
+  <nav>
+    <a href="#" class="logo">
+      <div class="logo-icon">M</div>
+      <div>
+        <div class="logo-name">Medio <span>Medical</span></div>
+        <div class="logo-sub">Supply Co.</div>
+      </div>
+    </a>
+    <ul class="nav-menu">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#services">Products</a></li>
+      <li><a href="#clients">Who We Serve</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#contact" class="nav-btn">Book Appointment</a></li>
+    </ul>
+    <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.add('open')">
+      <i class="fa fa-bars"></i>
+    </button>
+  </nav>
+</header>
+
+<div class="mobile-menu" id="mobileMenu" onclick="this.classList.remove('open')">
+  <div class="mobile-panel" onclick="event.stopPropagation()">
+    <button class="mobile-close" onclick="document.getElementById('mobileMenu').classList.remove('open')">✕</button>
+    <a href="#">Home</a>
+    <a href="#about">About Us</a>
+    <a href="#services">Products</a>
+    <a href="#clients">Who We Serve</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contact">Contact</a>
+    <a href="#contact" style="color:var(--teal);font-weight:700">Book Appointment</a>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content reveal">
+    <div class="hero-pill"><i class="fa fa-shield-halved"></i> ISO Certified Medical Partner</div>
+    <h1>Your Trusted Partner in <span>Medical Supplies</span></h1>
+    <p>Medio Medical Supply delivers precision-quality medical equipment, consumables, and healthcare solutions to hospitals, clinics, and professionals across Kenya and internationally.</p>
+    <div class="hero-ctas">
+      <a href="#services" class="btn-primary"><i class="fa fa-box-open"></i> Our Products</a>
+      <a href="#contact" class="btn-outline">Book Appointment</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <a href="#services">
+      <div class="hero-stat"><span class="hero-stat-num">500+</span><div class="hero-stat-lbl">Products Available</div></div>
+    </a>
+    <a href="#clients">
+      <div class="hero-stat"><span class="hero-stat-num">200+</span><div class="hero-stat-lbl">Healthcare Partners</div></div>
+    </a>
+    <a href="#about">
+      <div class="hero-stat"><span class="hero-stat-num">15+</span><div class="hero-stat-lbl">Years of Experience</div></div>
+    </a>
+    <a href="#contact">
+      <div class="hero-stat"><span class="hero-stat-num">24/7</span><div class="hero-stat-lbl">Customer Support</div></div>
+    </a>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="services-top reveal">
+    <div>
+      <span class="sec-label">What We Offer</span>
+      <h2 class="sec-title">Our Product Categories</h2>
+      <p class="sec-desc">We supply medical equipment, install and service equipment, and advise and train customers on use — meeting every healthcare need with precision.</p>
+    </div>
+    <a href="#contact" class="btn-primary">Request a Quote <i class="fa fa-arrow-right"></i></a>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <img src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=600&q=80" alt="Medical Equipment" class="service-img"/>
+      <div class="service-body">
+        <div class="service-icon"><i class="fa fa-stethoscope"></i></div>
+        <h3>Medical Equipment</h3>
+        <p>Surgical instruments, diagnostic tools, patient monitoring systems, and advanced imaging devices from globally certified manufacturers.</p>
+        <a href="#contact" class="read-more">Read More <i class="fa fa-arrow-right"></i></a>
+      </div>
+    </div>
+    <div class="service-card reveal">
+      <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&q=80" alt="Consumables" class="service-img"/>
+      <div class="service-body">
+        <div class="service-icon"><i class="fa fa-hand-holding-medical"></i></div>
+        <h3>Medical Consumables</h3>
+        <p>High-quality bandages, gloves, syringes, IV supplies, and personal protective equipment (PPE) for every clinical setting.</p>
+        <a href="#contact" class="read-more">Read More <i class="fa fa-arrow-right"></i></a>
+      </div>
+    </div>
+    <div class="service-card reveal">
+      <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&q=80" alt="Hospital Supplies" class="service-img"/>
+      <div class="service-body">
+        <div class="service-icon"><i class="fa fa-hospital"></i></div>
+        <h3>Hospital Supplies</h3>
+        <p>Bed linens, medical carts, sterilization products, hospital furniture, and facility management essentials for healthcare facilities.</p>
+        <a href="#contact" class="read-more">Read More <i class="fa fa-arrow-right"></i></a>
+      </div>
+    </div>
+    <div class="service-card reveal">
+      <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&q=80" alt="Home Care" class="service-img"/>
+      <div class="service-body">
+        <div class="service-icon"><i class="fa fa-house-medical"></i></div>
+        <h3>Home & Rehab Care</h3>
+        <p>Wheelchairs, mobility aids, respiratory care devices, wound care solutions, and home patient monitoring equipment.</p>
+        <a href="#contact" class="read-more">Read More <i class="fa fa-arrow-right"></i></a>
+      </div>
+    </div>
+    <div class="service-card reveal">
+      <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&q=80" alt="Pharmaceuticals" class="service-img"/>
+      <div class="service-body">
+        <div class="service-icon"><i class="fa fa-pills"></i></div>
+        <h3>Pharmaceuticals</h3>
+        <p>Essential medicines and pharmaceutical consumables supplied with full traceability, cold-chain integrity and regulatory compliance.</p>
+        <a href="#contact" class="read-more">Read More <i class="fa fa-arrow-right"></i></a>
+      </div>
+    </div>
+    <div class="service-card reveal">
+      <img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=600&q=80" alt="Laboratory" class="service-img"/>
+      <div class="service-body">
+        <div class="service-icon"><i class="fa fa-flask"></i></div>
+        <h3>Laboratory Supplies</h3>
+        <p>Lab reagents, test kits, specimen containers, and analytical instruments for clinical, research, and diagnostic laboratories.</p>
+        <a href="#contact" class="read-more">Read More <i class="fa fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="about-grid">
+    <div class="about-img-wrap reveal">
+      <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80" alt="About Medio Medical Supply"/>
+      <div class="about-badge">
+        <strong>15+</strong>
+        <span>Years Serving Kenya</span>
+      </div>
+    </div>
+    <div class="about-content reveal">
+      <span class="sec-label">About Us</span>
+      <h2 class="sec-title">A Trusted Partner to Hospitals & Clinics</h2>
+      <p class="sec-desc">We are a trusted partner to hospitals, clinics, and healthcare professionals both locally and internationally. Through continuous dedication to quality and customer care, we've established ourselves as a key player in the medical supply industry.</p>
+      <ul class="check-list">
+        <li><i class="fa fa-circle-check"></i> We partner with vibrant and reliable manufacturing and distributing companies in Kenya and globally.</li>
+        <li><i class="fa fa-circle-check"></i> Capable of handling large-scale and massive procurement demands with efficiency.</li>
+        <li><i class="fa fa-circle-check"></i> Committed to delivering products that meet the highest safety and quality standards.</li>
+        <li><i class="fa fa-circle-check"></i> A customer-first approach backed by a responsive, knowledgeable support team.</li>
+        <li><i class="fa fa-circle-check"></i> Fully licensed and ISO-certified medical supply partner serving East Africa.</li>
+      </ul>
+      <a href="#contact" class="btn-primary">Book an Appointment <i class="fa fa-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+<section class="whyus">
+  <div style="text-align:center;margin-bottom:3rem" class="reveal">
+    <span class="sec-label">Why Choose Us</span>
+    <h2 class="sec-title">What Sets Us Apart</h2>
+    <p class="sec-desc" style="margin:0 auto">At Medio Medical Supply, we are committed to delivering top-tier medical products that enhance the health and well-being of individuals and healthcare providers alike.</p>
+  </div>
+  <div class="why-grid">
+    <div class="why-card reveal"><i class="fa fa-award"></i><h4>Certified Quality</h4><p>All products are sourced from ISO-certified manufacturers and meet international healthcare standards.</p></div>
+    <div class="why-card reveal"><i class="fa fa-truck-fast"></i><h4>Fast Delivery</h4><p>Reliable nationwide delivery and logistics network ensuring your supplies arrive on time, every time.</p></div>
+    <div class="why-card reveal"><i class="fa fa-headset"></i><h4>24/7 Support</h4><p>Our dedicated customer support team is available around the clock to assist with any enquiry or emergency.</p></div>
+    <div class="why-card reveal"><i class="fa fa-globe"></i><h4>Global Reach</h4><p>We source products from reputable global partners and serve clients across East Africa and internationally.</p></div>
+    <div class="why-card reveal"><i class="fa fa-tags"></i><h4>Competitive Pricing</h4><p>We offer fair, transparent pricing with bulk order discounts and flexible payment terms for institutions.</p></div>
+    <div class="why-card reveal"><i class="fa fa-screwdriver-wrench"></i><h4>Installation & Training</h4><p>We supply, install, service equipment, and provide hands-on training to healthcare teams on proper use.</p></div>
+  </div>
+</section>
+
+<section class="clients" id="clients">
+  <div style="text-align:center" class="reveal">
+    <span class="sec-label">Our Clients</span>
+    <h2 class="sec-title">Who We Serve</h2>
+    <p class="sec-desc" style="margin:0 auto">From large national hospitals to individual home care providers, Medio Medical Supply supports every level of the healthcare ecosystem.</p>
+  </div>
+  <div class="clients-grid">
+    <div class="client-card reveal">
+      <div class="client-icon"><i class="fa fa-hospital"></i></div>
+      <h4>Hospitals & Clinics</h4>
+      <p>Full-service supply solutions for hospitals, clinics, nursing homes, and surgical centres of all sizes.</p>
+    </div>
+    <div class="client-card reveal">
+      <div class="client-icon"><i class="fa fa-user-doctor"></i></div>
+      <h4>Medical Professionals</h4>
+      <p>Doctors, nurses, technicians, and medical specialists requiring reliable access to quality supplies.</p>
+    </div>
+    <div class="client-card reveal">
+      <div class="client-icon"><i class="fa fa-house-medical"></i></div>
+      <h4>Home Care Providers</h4>
+      <p>Agencies and caregivers delivering at-home patient care who need dependable supply chains.</p>
+    </div>
+    <div class="client-card reveal">
+      <div class="client-icon"><i class="fa fa-building-columns"></i></div>
+      <h4>Government & NGOs</h4>
+      <p>Public health programmes and non-governmental organisations requiring compliant, large-volume procurement.</p>
+    </div>
+    <div class="client-card reveal">
+      <div class="client-icon"><i class="fa fa-microscope"></i></div>
+      <h4>Research Institutions</h4>
+      <p>Universities and research labs sourcing laboratory equipment, reagents, and scientific consumables.</p>
+    </div>
+    <div class="client-card reveal">
+      <div class="client-icon"><i class="fa fa-briefcase-medical"></i></div>
+      <h4>Pharmacies & Med Businesses</h4>
+      <p>Businesses specialising in medical supplies and healthcare products needing wholesale partners.</p>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="gallery">
+  <div class="reveal">
+    <span class="sec-label">Our Work</span>
+    <h2 class="sec-title">Product Showcase</h2>
+    <p class="sec-desc">A glimpse of the world-class medical equipment and supplies we deliver to healthcare facilities across Kenya and East Africa.</p>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-item large reveal">
+      <img src="https://images.unsplash.com/photo-1587351021355-a479a299d2f9?w=900&q=80" alt="Medical Equipment"/>
+      <div class="gallery-overlay"><i class="fa fa-magnifying-glass-plus"></i></div>
+    </div>
+    <div class="gallery-item reveal">
+      <img src="https://images.unsplash.com/photo-1631815589968-fdb09a223b1e?w=600&q=80" alt="Surgical Tools"/>
+      <div class="gallery-overlay"><i class="fa fa-magnifying-glass-plus"></i></div>
+    </div>
+    <div class="gallery-item reveal">
+      <img src="https://images.unsplash.com/photo-1530026186672-2cd00ffc50fe?w=600&q=80" alt="Consumables"/>
+      <div class="gallery-overlay"><i class="fa fa-magnifying-glass-plus"></i></div>
+    </div>
+    <div class="gallery-item reveal">
+      <img src="https://images.unsplash.com/photo-1603398938378-e54eab446dde?w=600&q=80" alt="Lab Supplies"/>
+      <div class="gallery-overlay"><i class="fa fa-magnifying-glass-plus"></i></div>
+    </div>
+    <div class="gallery-item reveal">
+      <img src="https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?w=600&q=80" alt="Hospital Bed"/>
+      <div class="gallery-overlay"><i class="fa fa-magnifying-glass-plus"></i></div>
+    </div>
+  </div>
+</section>
+
+<section class="testi">
+  <div style="text-align:center" class="reveal">
+    <span class="sec-label">Testimonials</span>
+    <h2 class="sec-title">What Our Clients Say</h2>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card reveal">
+      <div class="testi-stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+      <p class="testi-text">"Medio Medical Supply has been our go-to partner for over 5 years. Their quality is unmatched and deliveries are always on time. Highly recommended for any healthcare facility."</p>
+      <div class="testi-author">
+        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=80&q=80" alt="Dr. James Otieno" class="testi-avatar"/>
+        <div>
+          <div class="testi-name">Dr. James Otieno</div>
+          <div class="testi-role">Medical Director, Nairobi Clinic</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card reveal">
+      <div class="testi-stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+      <p class="testi-text">"The team at Medio is incredibly professional. They sourced specialised equipment for our ICU within days. Their after-sales support and training have been exceptional."</p>
+      <div class="testi-author">
+        <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=80&q=80" alt="Nurse Faith Wanjiru" class="testi-avatar"/>
+        <div>
+          <div class="testi-name">Faith Wanjiru, RN</div>
+          <div class="testi-role">Head Nurse, Karen Hospital</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card reveal">
+      <div class="testi-stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-stroke"></i></div>
+      <p class="testi-text">"We've procured large quantities of PPE and consumables through Medio. Pricing is competitive, quality is consistent, and their customer care team is always responsive."</p>
+      <div class="testi-author">
+        <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=80&q=80" alt="Mr. Peter Kamau" class="testi-avatar"/>
+        <div>
+          <div class="testi-name">Peter Kamau</div>
+          <div class="testi-role">Procurement Officer, MOH Kenya</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-banner reveal">
+  <h2>Ready to Partner with Medio Medical Supply?</h2>
+  <p>To be a leader in medical supplies — providing accessible, high-quality products that empower healthcare professionals and improve patient outcomes worldwide.</p>
+  <div class="cta-btns">
+    <a href="#contact" class="btn-white">Book an Appointment</a>
+    <a href="#services" class="btn-woutline">Browse Products</a>
+  </div>
+</div>
+
+<section id="contact">
+  <div class="contact-grid">
+    <div class="contact-details reveal">
+      <span class="sec-label">Get In Touch</span>
+      <h2 class="sec-title">Contact Us</h2>
+      <p class="sec-desc">Our dedicated team is on hand to assist you with product enquiries, bulk orders, installation bookings, and appointment scheduling. We serve clients locally and internationally.</p>
+      <div class="info-items">
+        <div class="info-item">
+          <div class="info-icon"><i class="fa fa-map-marker-alt"></i></div>
+          <div class="info-text">
+            <strong>Our Location</strong>
+            <span>City Park Drive, off Limuru Road, Parklands, Nairobi, Kenya</span>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon"><i class="fa fa-phone"></i></div>
+          <div class="info-text">
+            <strong>Call Us</strong>
+            <span><a href="tel:+254726618187">+254 726 618 187</a></span>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon"><i class="fa fa-envelope"></i></div>
+          <div class="info-text">
+            <strong>Email Us</strong>
+            <span><a href="mailto:info@mediomedicalsupply.co.ke">info@mediomedicalsupply.co.ke</a></span>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon"><i class="fa fa-clock"></i></div>
+          <div class="info-text"><strong>Business Hours</strong><span>Mon – Fri: 8:00 AM – 5:00 PM | Sat: 8:00 AM – 1:00 PM</span></div>
+        </div>
+      </div>
+      <div class="map-wrap">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.847144131584!2d36.8214227!3d-1.2642398!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1725bcf8e07b%3A0x6bba847c2a71f0!2sLimuru%20Rd%20%26%20City%20Park%20Dr%2C%20Nairobi!5e0!3m2!1sen!2ske!4v1710000000000!5m2!1sen!2ske" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+    <div class="contact-form-wrap reveal">
+      <h3>Send Us a Message</h3>
+      <div class="form-row">
+        <div class="fg"><label>First Name</label><input type="text" placeholder="John"/></div>
+        <div class="fg"><label>Last Name</label><input type="text" placeholder="Kamau"/></div>
+      </div>
+      <div class="fg"><label>Email Address</label><input type="email" placeholder="you@example.com"/></div>
+      <div class="fg"><label>Phone Number</label><input type="tel" placeholder="+254 7XX XXX XXX"/></div>
+      <div class="fg"><label>Organisation / Facility</label><input type="text" placeholder="Hospital or clinic name"/></div>
+      <div class="fg">
+        <label>Product Category of Interest</label>
+        <select>
+          <option value="">Select a category</option>
+          <option>Medical Equipment</option>
+          <option>Medical Consumables</option>
+          <option>Hospital Supplies</option>
+          <option>Home & Rehab Care</option>
+          <option>Pharmaceuticals</option>
+          <option>Laboratory Supplies</option>
+          <option>General Enquiry</option>
+        </select>
+      </div>
+      <div class="fg"><label>Your Message</label><textarea placeholder="Describe your needs, request a quote, or book an appointment..."></textarea></div>
+      <button class="form-btn" onclick="alert('Thank you! We will get back to you shortly.')">Submit Enquiry &nbsp;<i class="fa fa-paper-plane"></i></button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-about">
+      <div class="footer-logo">
+        <a href="#" class="logo">
+          <div class="logo-icon">M</div>
+          <div>
+            <div class="logo-name">Medio <span>Medical</span></div>
+            <div class="logo-sub" style="color:rgba(255,255,255,.4)">Supply Co.</div>
+          </div>
+        </a>
+      </div>
+      <p>We are a trusted partner to hospitals, clinics, and healthcare professionals both locally and internationally. Committed to quality, reliability, and your health.</p>
+      <div class="footer-socials">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-x-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Products</h5>
+      <ul>
+        <li><a href="#services">Medical Equipment</a></li>
+        <li><a href="#services">Consumables</a></li>
+        <li><a href="#services">Hospital Supplies</a></li>
+        <li><a href="#services">Home Care</a></li>
+        <li><a href="#services">Pharmaceuticals</a></li>
+        <li><a href="#services">Lab Supplies</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#clients">Who We Serve</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+        <li><a href="#contact">Book Appointment</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <ul>
+        <li><a href="#contact">Parklands, Nairobi</a></li>
+        <li><a href="tel:+254726618187">+254 726 618 187</a></li>
+        <li><a href="mailto:info@mediomedicalsupply.co.ke">info@mediomedicalsupply.co.ke</a></li>
+        <li><a href="#">Mon–Fri: 8 AM – 5 PM</a></li>
+        <li><a href="#">Sat: 8 AM – 1 PM</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 Medio Medical Supply. All rights reserved.</span>
+    <div style="display:flex;gap:1.5rem">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Sitemap</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Scroll reveal
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}});
+},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// Active nav on scroll
+const navLinks = document.querySelectorAll('.nav-menu a');
+window.addEventListener('scroll',()=>{
+  let cur='';
+  document.querySelectorAll('section[id]').forEach(s=>{
+    if(window.scrollY>=s.offsetTop-80) cur=s.id;
+  });
+  navLinks.forEach(a=>{
+    const parent=a.parentElement;
+    parent.classList.toggle('active',a.getAttribute('href')==='#'+cur);
+  });
+});
+</script>
+</body>
+</html>
