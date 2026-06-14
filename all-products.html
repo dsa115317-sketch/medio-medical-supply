@@ -4,18 +4,70 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>All Products | Medio Medical Supply</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 <style>
-  :root { --blue:#003580; --teal:#00a8b5; --light:#f0f6ff; }
-  body { font-family: 'Poppins', sans-serif; background: #f9f9f9; margin: 0; }
+  :root { 
+    --blue:#003580; 
+    --teal:#00a8b5; 
+    --light:#f0f6ff; 
+    --dark:#111c2d;
+    --muted:#6b778c;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Poppins', sans-serif; background: #f5f7fb; margin: 0; padding: 0; color: #222; }
   
-  .header { background: var(--blue); color: #fff; padding: 60px 6%; text-align: center; }
-  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; padding: 50px 6%; }
-  .card { background: #fff; padding: 25px; border-radius: 12px; border: 1px solid #eee; text-align: center; transition: 0.3s; }
-  .card:hover { border-color: var(--teal); transform: translateY(-5px); }
-  .card i { font-size: 2.5rem; color: var(--teal); margin-bottom: 15px; }
-  .card h3 { font-size: 1rem; color: var(--blue); }
-  .btn-back { display: block; width: 200px; margin: 20px auto; padding: 12px; background: var(--teal); color: #fff; text-decoration: none; border-radius: 8px; text-align: center; }
+  .header { 
+    background: linear-gradient(100deg, rgba(0,31,80,.9) 0%, rgba(0,53,128,.7) 100%), url('https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=1600&q=80') center/cover; 
+    color: #fff; 
+    padding: 70px 6%; 
+    text-align: center; 
+  }
+  .header h1 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin: 0 0 10px 0; }
+  .header p { font-weight: 300; font-size: 1.05rem; margin: 0; color: rgba(255,255,255,0.85); }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; padding: 50px 6%; }
+  
+  .card { 
+    background: #fff; 
+    border-radius: 14px; 
+    border: 1px solid rgba(0,0,0,.06); 
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; 
+    scroll-margin-top: 100px; /* Ensures space at top when scrolled to via anchor link */
+  }
+  .card:hover { 
+    border-color: var(--teal); 
+    transform: translateY(-5px); 
+    box-shadow: 0 12px 30px rgba(0, 53, 128, 0.08);
+  }
+  
+  .card-img { width: 100%; height: 170px; object-fit: cover; display: block; background: #eee; }
+  .card-body { padding: 22px; text-align: left; display: flex; flex-direction: column; gap: 8px; flex-grow: 1; }
+  
+  .card-icon-title { display: flex; align-items: center; gap: 12px; margin-bottom: 4px; }
+  .card i { font-size: 1.4rem; color: var(--teal); flex-shrink: 0; }
+  .card h3 { font-size: 1.05rem; color: var(--blue); margin: 0; font-weight: 600; line-height: 1.3; }
+  .card p { font-size: 0.83rem; color: var(--muted); margin: 0; line-height: 1.5; }
+  
+  .card-btn {
+    margin-top: auto; padding-top: 12px; border-top: 1px solid #f0f3f8;
+    color: var(--teal); font-size: 0.82rem; font-weight: 600; text-decoration: none;
+    display: inline-flex; align-items: center; gap: 6px; transition: color 0.2s;
+  }
+  .card:hover .card-btn { color: var(--blue); }
+
+  .btn-back { 
+    display: inline-flex; align-items: center; gap: 8px;
+    width: auto; margin: 0 auto 50px auto; padding: 12px 30px; 
+    background: var(--blue); color: #fff; text-decoration: none; 
+    border-radius: 8px; font-weight: 500; transition: background 0.2s;
+  }
+  .btn-back:hover { background: var(--teal); }
+  .actions-container { text-align: center; }
 </style>
 </head>
 <body>
@@ -26,27 +78,174 @@
 </div>
 
 <div class="grid">
-  <div class="card"><i class="fas fa-bed"></i><h3>Hospital Furniture</h3></div>
-  <div class="card"><i class="fas fa-hand-holding-medical"></i><h3>Medical Consumables</h3></div>
-  <div class="card"><i class="fas fa-tooth"></i><h3>Dental Equipment</h3></div>
-  <div class="card"><i class="fas fa-baby-carriage"></i><h3>OB/GYN Equipment</h3></div>
-  <div class="card"><i class="fas fa-microscope"></i><h3>Laboratory Equipment</h3></div>
-  <div class="card"><i class="fas fa-briefcase-medical"></i><h3>First-Aid Products</h3></div>
-  <div class="card"><i class="fas fa-eye"></i><h3>Ophthalmic Equipment</h3></div>
-  <div class="card"><i class="fas fa-x-ray"></i><h3>Radiology & Imaging</h3></div>
-  <div class="card"><i class="fas fa-user-shield"></i><h3>PPE</h3></div>
-  <div class="card"><i class="fas fa-water"></i><h3>Hemodialysis Equipment</h3></div>
-  <div class="card"><i class="fas fa-user-injured"></i><h3>Medical Human Models</h3></div>
-  <div class="card"><i class="fas fa-head-side-mask"></i><h3>ENT Equipment</h3></div>
-  <div class="card"><i class="fas fa-vial"></i><h3>In-Vitro Diagnostics</h3></div>
-  <div class="card"><i class="fas fa-soap"></i><h3>Sterilizers (Autoclave)</h3></div>
-  <div class="card"><i class="fas fa-paw"></i><h3>Veterinary Equipment</h3></div>
-  <div class="card"><i class="fas fa-walking"></i><h3>Walking Aids</h3></div>
-  <div class="card"><i class="fas fa-手术刀"></i><h3>Operating Theatre Equipment</h3></div>
-  <div class="card"><i class="fas fa-stethoscope"></i><h3>Diagnostic Equipment</h3></div>
+
+  <div class="card" id="hospital-furniture">
+    <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=600&q=80" alt="Hospital Furniture" class="card-img"/>
+    <div class="card-body">
+      <div class="card-icon-title"><i class="fas fa-bed"></i><h3>Hospital Furniture</h3></div>
+      <p>Premium ward beds, medical carts, examination tables, and storage cabinets designed for healthcare utility.</p>
+      <a href="index.html#contact" class="card-btn">Inquire Product <i class="fa fa-arrow-right"></i></a>
+    </div>
+  </div>
+
+  <div class="card" id="medical-consumables">
+    <img src="https://images.unsplash.com/photo-1628771065518-0d82f1938462?auto=format&fit=crop&w=600&q=80" alt="Medical Consumables" class="card-img"/>
+    <div class="card-body">
+      <div class="card-icon-title"><i class="fas fa-hand-holding-medical"></i><h3>Medical Consumables</h3></div>
+      <p>Surgical gloves, bandages, high-grade syringes, gauze, and professional fluid administration kits.</p>
+      <a href="index.html#contact" class="card-btn">Inquire Product <i class="fa fa-arrow-right"></i></a>
+    </div>
+  </div>
+
+  <div class="card" id="dental-equipment">
+    <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=600&q=80" alt="Dental Equipment" class="card-img"/>
+    <div class="card-body">
+      <div class="card-icon-title"><i class="fas fa-tooth"></i><h3>Dental Equipment</h3></div>
+      <p>Advanced diagnostic dental chairs, high-speed handpieces, sterilizers, and complete oral surgical instruments.</p>
+      <a href="index.html#contact" class="card-btn">Inquire Product <i class="fa fa-arrow-right"></i></a>
+    </div>
+  </div>
+
+  <div class="card" id="obgyn-equipment">
+    <img src="https://images.unsplash.com/photo-1531815455052-1218f4b5e221?auto=format&fit=crop&w=600&q=80" alt="OB/GYN Equipment" class="card-img"/>
+    <div class="card-body">
+      <div class="card-icon-title"><i class="fas fa-baby-carriage"></i><h3>OB/GYN Equipment</h3></div>
+      <p>Maternal ultrasound machines, fetal heart monitors, specialized delivery beds, and gynecological tools.</p>
+      <a href="index.html#contact" class="card-btn">Inquire Product <i class="fa fa-arrow-right"></i></a>
+    </div>
+  </div>
+
+  <div class="card" id="laboratory-equipment">
+    <img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=600&q=80" alt="Laboratory Equipment" class="card-img"/>
+    <div class="card-body">
+      <div class="card-icon-title"><i class="fas fa-microscope"></i><h3>Laboratory Equipment</h3></div>
+      <p>High-resolution microscopes, high-speed centrifuges, incubators, and sample analysis machinery.</p>
+      <a href="index.html#contact" class="card-btn">Inquire Product <i class="fa fa-arrow-right"></i></a>
+    </div>
+  </div>
+
+  <div class="card" id="first-aid">
+    <img src="https://images.unsplash.com/photo-1603398938378-e54eab446dde?auto=format&fit=crop&w=600&q=80" alt="First-Aid Products" class="card-img"/>
+    <div class="card-body">
+      <div class="card-icon-title"><i class="fas fa-briefcase-medical"></i><h3>First-Aid Products</h3></div>
+      <p>Emergency response kits, trauma management accessories, resuscitation packs, and industrial field boxes.</p>
+      <a href="index.html#contact" class="card-btn">Inquire Product <i class="fa fa-arrow-right"></i></a>
+    </div>
+  </div>
+
+  <div class="card" id="ophthalmic-equipment">
+    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=600&q=80" alt="Ophthalmic Equipment" class="card-img"/>
+    <div class="card-body">
+      <div class="card-icon-title"><i class="fas fa-eye"></i><h3>Ophthalmic Equipment</h3></div>
+      <p>Slit lamps, digital autorefractors, ophthalmoscopes, and advanced optical vision assessment systems.</p>
+      <a href="index.html#contact" class="card-btn">Inquire Product <i class="fa fa-arrow-right"></i></a>
+    </div>
+  </div>
+
+  <div class="card" id="radiology-imaging">
+    <img src="https://images.unsplash.com/photo-1617886322168-72b886573c3c?auto=format&fit=crop&w=600&q=80" alt="Radiology & Imaging" class="card-img"/>
+    <div class="card-body">
+      <div class="card-icon-title"><i class="fas fa-x-ray"></i><h3>Radiology & Imaging</h3></div>
+      <p>Digital X-Ray systems, ultrasound transducers, diagnostic viewing screens, and radiation protection.</p>
+      <a href="index.html#contact" class="card-btn">Inquire Product <i class="fa fa-arrow-right"></i></a>
+    </div>
+  </div>
+
+  <div class="card" id="ppe">
+    <img src="https://images.unsplash.com/photo-1584483766114-2cea6facdf57?auto=format&fit=crop&w=600&q=80" alt="PPE" class="card-img"/>
+    <div class="card-body">
+      <div class="card-icon-title"><i class="fas fa-user-shield"></i><h3>Personal Protective Equipment</h3></div>
+      <p>Medical face shields, N95 respirators, fluid-resistant surgical gowns, and protective eyewear lines.</p>
+      <a href="index.html#contact" class="card-btn">Inquire Product <i class="fa fa-arrow-right"></i></a>
+    </div>
+  </div>
+
+  <div class="card" id="hemodialysis-equipment">
+    <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=600&q=80" alt="Hemodialysis Equipment" class="card-img"/>
+    <div class="card-body">
+      <div class="card-icon-title"><i class="fas fa-water"></i><h3>Hemodialysis Equipment</h3></div>
+      <p>Advanced dialysis blood purification systems, premium patient chairs, and dialyzer consumables filter accessories.</p>
+      <a href="index.html#contact" class="card-btn">Inquire Product <i class="fa fa-arrow-right"></i></a>
+    </div>
+  </div>
+
+  <div class="card" id="human-models">
+    <img src="https://images.unsplash.com/photo-1530026186672-2cd00ffc50fe?auto=format&fit=crop&w=600&q=80" alt="Medical Human Models" class="card-img"/>
+    <div class="card-body">
+      <div class="card-icon-title"><i class="fas fa-user-injured"></i><h3>Medical Human Models</h3></div>
+      <p>Anatomical structures, interactive diagnostic practice skeletons, and medical school training manikins.</p>
+      <a href="index.html#contact" class="card-btn">Inquire Product <i class="fa fa-arrow-right"></i></a>
+    </div>
+  </div>
+
+  <div class="card" id="ent-equipment">
+    <img src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?auto=format&fit=crop&w=600&q=80" alt="ENT Equipment" class="card-img"/>
+    <div class="card-body">
+      <div class="card-icon-title"><i class="fas fa-head-side-mask"></i><h3>ENT Equipment</h3></div>
+      <p>Precision otoscopes, examination units, endoscopic throat scopes, and complete surgical instrument sets.</p>
+      <a href="index.html#contact" class="card-btn">Inquire Product <i class="fa fa-arrow-right"></i></a>
+    </div>
+  </div>
+
+  <div class="card" id="ivd">
+    <img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&w=600&q=80" alt="In-Vitro Diagnostics" class="card-img"/>
+    <div class="card-body">
+      <div class="card-icon-title"><i class="fas fa-vial"></i><h3>In-Vitro Diagnostics</h3></div>
+      <p>Clinical rapid diagnostic kits, test reagents, automated biochemistry panels, and hematology analyzers.</p>
+      <a href="index.html#contact" class="card-btn">Inquire Product <i class="fa fa-arrow-right"></i></a>
+    </div>
+  </div>
+
+  <div class="card" id="sterilizers">
+    <img src="https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?auto=format&fit=crop&w=600&q=80" alt="Sterilizers" class="card-img"/>
+    <div class="card-body">
+      <div class="card-icon-title"><i class="fas fa-soap"></i><h3>Sterilizers (Autoclave)</h3></div>
+      <p>High-capacity pressure steam sterilization equipment, table autoclaves, and sterilization validation pouches.</p>
+      <a href="index.html#contact" class="card-btn">Inquire Product <i class="fa fa-arrow-right"></i></a>
+    </div>
+  </div>
+
+  <div class="card" id="veterinary-equipment">
+    <img src="https://images.unsplash.com/photo-1581888227599-779811939961?auto=format&fit=crop&w=600&q=80" alt="Veterinary Equipment" class="card-img"/>
+    <div class="card-body">
+      <div class="card-icon-title"><i class="fas fa-paw"></i><h3>Veterinary Equipment</h3></div>
+      <p>Animal diagnostic ultrasound systems, dedicated operating tables, and custom clinical monitoring tools.</p>
+      <a href="index.html#contact" class="card-btn">Inquire Product <i class="fa fa-arrow-right"></i></a>
+    </div>
+  </div>
+
+  <div class="card" id="walking-aids">
+    <img src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=600&q=80" alt="Walking Aids" class="card-img"/>
+    <div class="card-body">
+      <div class="card-icon-title"><i class="fas fa-walking"></i><h3>Walking & Rehab Aids</h3></div>
+      <p>Lightweight manual wheelchairs, mobility frames, quad canes, and specialized physical rehab support units.</p>
+      <a href="index.html#contact" class="card-btn">Inquire Product <i class="fa fa-arrow-right"></i></a>
+    </div>
+  </div>
+
+  <div class="card" id="operating-theatre">
+    <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=600&q=80" alt="Operating Theatre" class="card-img"/>
+    <div class="card-body">
+      <div class="card-icon-title"><i class="fas fa-stethoscope"></i><h3>Operating Theatre Equipment</h3></div>
+      <p>Shadowless overhead surgical lamps, anesthesia gas delivery platforms, and adjustable surgical tables.</p>
+      <a href="index.html#contact" class="card-btn">Inquire Product <i class="fa fa-arrow-right"></i></a>
+    </div>
+  </div>
+
+  <div class="card" id="diagnostic-equipment">
+    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80" alt="Diagnostic Equipment" class="card-img"/>
+    <div class="card-body">
+      <div class="card-icon-title"><i class="fas fa-user-doctor"></i><h3>Diagnostic Equipment</h3></div>
+      <p>Clinical stethoscopes, digital blood pressure vital kits, pulse oximeters, and thermal screening devices.</p>
+      <a href="index.html#contact" class="card-btn">Inquire Product <i class="fa fa-arrow-right"></i></a>
+    </div>
+  </div>
+
 </div>
 
-<a href="index.html" class="btn-back">Back to Home</a>
+<div class="actions-container">
+  <a href="index.html" class="btn-back"><i class="fas fa-arrow-left"></i> Back to Home</a>
+</div>
 
 </body>
 </html>
