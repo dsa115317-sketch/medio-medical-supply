@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Hospital Supplies | Handerson Medical Supplies</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght=600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;color:#222;background:#f5f7fb;overflow-x:hidden}
+
+:root{
+  --blue:#003580;
+  --teal:#00a8b5;
+  --light:#f0f6ff;
+  --grey:#f5f7fb;
+  --dark:#111c2d;
+  --muted:#6b778c;
+}
+
+/* ── TOP BAR ── */
+.topbar{
+  background:var(--blue);
+  color:rgba(255,255,255,.85);
+  font-size:.78rem;
+  padding:7px 6%;
+  display:flex;justify-content:space-between;align-items:center;gap:1rem;
+}
+.topbar i{margin-right:5px;color:var(--teal)}
+
+/* ── HEADER NAVIGATION ── */
+header{
+  position:sticky;top:0;z-index:999;
+  background:#fff;
+  box-shadow:0 2px 16px rgba(0,0,0,.09);
+}
+nav{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 6%;height:72px;
+}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-icon{
+  width:44px;height:44px;background:var(--blue);border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:1.25rem;font-weight:800;
+}
+.logo-name{font-size:1.22rem;font-weight:700;color:var(--blue);line-height:1.1}
+.logo-name span{color:var(--teal)}
+.logo-sub{font-size:.65rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+
+.nav-menu{display:flex;list-style:none;gap:.25rem;align-items:center}
+.nav-menu a{
+  color:#333;text-decoration:none;font-size:.88rem;font-weight:500;
+  padding:6px 14px;border-radius:6px;transition:background .18s;
+}
+.nav-menu a:hover{background:var(--light);color:var(--blue)}
+
+/* ── HERO BANNER ── */
+.page-header {
+  background: linear-gradient(100deg, rgba(0,31,80,.9) 0%, rgba(0,53,128,.7) 100%), url('https://images.unsplash.com/photo-1516549655169-df83a0774514?w=1600&q=80') center/cover;
+  padding: 55px 6%;
+  color: #fff;
+}
+.page-header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.3rem;
+  margin-bottom: 6px;
+}
+.breadcrumbs {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.7);
+}
+.breadcrumbs a {
+  color: var(--teal);
+  text-decoration: none;
+  margin-right: 5px;
+}
+
+/* ── SUPPLIES GRID ── */
+.catalog-section {
+  padding: 60px 6%;
+  background: #ffffff;
+}
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 20px;
+  margin-top: 10px;
+}
+.catalog-item {
+  background: var(--grey);
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+.catalog-item:hover {
+  background: var(--light);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 53, 128, 0.06);
+  border-color: rgba(0, 168, 185, 0.2);
+}
+.catalog-icon-box {
+  width: 52px;
+  height: 52px;
+  background: #ffffff;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--teal);
+  font-size: 1.35rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+  flex-shrink: 0;
+}
+.catalog-item:hover .catalog-icon-box {
+  background: var(--blue);
+  color: #ffffff;
+}
+.catalog-info h4 {
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 4px;
+}
+.catalog-info p {
+  font-size: 0.8rem;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+/* ── BOTTOM BACK ACTION ── */
+.action-box {
+  text-align: center;
+  margin-top: 50px;
+}
+.btn-back {
+  background: var(--blue);
+  color: #fff;
+  text-decoration: none;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.2s;
+}
+.btn-back:hover {
+  background: var(--teal);
+}
+
+/* ── FOOTER ── */
+footer{background:var(--dark);padding:50px 6% 25px;color:rgba(255,255,255,.5);margin-top:40px}
+.footer-top{
+  display:grid;grid-template-columns:2fr 1fr;gap:3rem;
+  padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,.07);
+}
+.footer-about p{font-size:.84rem;line-height:1.75;margin-top:.5rem}
+.footer-col h5{color:#fff;font-size:.82rem;font-weight:600;margin-bottom:1rem;text-transform:uppercase}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.55rem}
+.footer-col ul a{color:rgba(255,255,255,.45);text-decoration:none;font-size:.83rem}
+.footer-bottom{padding-top:20px;font-size:.78rem;text-align:center}
+
+@media(max-width:768px){
+  .footer-top {grid-template-columns: 1fr;}
+  .topbar {display: none;}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div><span><i class="fa fa-phone"></i> +254 746 384 973</span></div>
+  <div><span><i class="fa fa-envelope"></i> sales@handerson.co.ke</span></div>
+</div>
+
+<header>
+  <nav>
+    <a href="index.html" class="logo">
+      <div class="logo-icon">H</div>
+      <div>
+        <div class="logo-name">Handerson <span>Medical</span></div>
+        <div class="logo-sub">Supplies</div>
+      </div>
+    </a>
+    <ul class="nav-menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#about">About Us</a></li>
+      <li><a href="index.html#services">Categories</a></li>
+      <li><a href="index.html#contact">Contact Us</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="page-header">
+  <h1>Hospital Supplies</h1>
+  <div class="breadcrumbs">
+    <a href="index.html">Home</a> • <span>Hospital Supplies</span>
+  </div>
+</div>
+
+<section class="catalog-section">
+  <div class="catalog-grid">
+    
+    <a href="index.html#contact" class="catalog-item">
+      <div class="catalog-icon-box"><i class="fa fa-bed"></i></div>
+      <div class="catalog-info">
+        <h4>Hospital Furniture</h4>
+        <p>ICU manual & electric beds, overbed tables, ward screens, and mattresses.</p>
+      </div>
+    </a>
+
+    <a href="index.html#contact" class="catalog-item">
+      <div class="catalog-icon-box"><i class="fa fa-cart-flatbed-suitcases"></i></div>
+      <div class="catalog-info">
+        <h4>Medical Carts & Trolleys</h4>
+        <p>Emergency crash carts, medicine dispensing carts, and linen dressing trolleys.</p>
+      </div>
+    </a>
+
+    <a href="index.html#contact" class="catalog-item">
+      <div class="catalog-icon-box"><i class="fa fa-soap"></i></div>
+      <div class="catalog-info">
+        <h4>Sterilization & Disinfection</h4>
+        <p>Autoclave accessories, indicator tapes, sterilization pouches, and disinfectants.</p>
+      </div>
+    </a>
+
+    <a href="index.html#contact" class="catalog-item">
+      <div class="catalog-icon-box"><i class="fa fa-scroll"></i></div>
+      <div class="catalog-info">
+        <h4>Medical Grade Linens</h4>
+        <p>Fluid-resistant bedsheets, reusable surgical drapes, pillowcases, and towels.</p>
+      </div>
+    </a>
+
+    <a href="index.html#contact" class="catalog-item">
+      <div class="catalog-icon-box"><i class="fa fa-trash-can"></i></div>
+      <div class="catalog-info">
+        <h4>Facility Management Essentials</h4>
+        <p>Biohazard waste bins, sharps disposal boxes, safety signs, and cleaning equipment.</p>
+      </div>
+    </a>
+
+    <a href="index.html#contact" class="catalog-item">
+      <div class="catalog-icon-box"><i class="fa fa-lightbulb"></i></div>
+      <div class="catalog-info">
+        <h4>Ward & Examination Utilities</h4>
+        <p>IV stands, diagnostic penlights, step stools, and patient privacy equipment.</p>
+      </div>
+    </a>
+
+  </div>
+
+  <div class="action-box">
+    <a href="index.html" class="btn-back"><i class="fa fa-arrow-left"></i> Return to Main Home</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-about">
+      <h5>Handerson Medical</h5>
+      <p>Trusted partner to hospitals, clinics, and healthcare professionals both locally and internationally.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Quick Links</h5>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#services">Categories</a></li>
+        <li><a href="index.html#contact">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Handerson Medical Supplies. All rights reserved.</span>
+  </div>
+</footer>
+
+</body>
+</html>
