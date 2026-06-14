@@ -156,7 +156,7 @@ section{padding:90px 6%}
 }
 .sec-desc{color:var(--muted);font-size:.95rem;line-height:1.8;max-width:560px}
 
-/* ── SERVICES / HIGH LEVEL CATEGORIES ── */
+/* ── SERVICES ── */
 .services{background:var(--grey)}
 .services-top{
   display:flex;justify-content:space-between;align-items:flex-end;
@@ -186,65 +186,9 @@ section{padding:90px 6%}
 .service-card p{font-size:.83rem;color:var(--muted);line-height:1.65;margin-bottom:1rem}
 .read-more{
   color:var(--teal);font-size:.82rem;font-weight:600;text-decoration:none;
-  display:inline-flex;align-items:center;gap:5px;cursor:pointer;
+  display:inline-flex;align-items:center;gap:5px;
 }
 .read-more:hover{color:var(--blue)}
-
-/* ── DETAILED PRODUCT CATALOG GRID (NEW) ── */
-.product-catalog {
-  background: #ffffff;
-  padding: 90px 6%;
-}
-.catalog-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 20px;
-  margin-top: 40px;
-}
-.catalog-item {
-  background: var(--grey);
-  border-radius: 12px;
-  padding: 24px;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  border: 1px solid rgba(0, 0, 0, 0.04);
-  transition: all 0.2s ease;
-  text-decoration: none;
-}
-.catalog-item:hover {
-  background: var(--light);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 24px rgba(0, 53, 128, 0.06);
-  border-color: rgba(0, 168, 185, 0.2);
-}
-.catalog-icon-box {
-  width: 50px;
-  height: 50px;
-  background: #ffffff;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--teal);
-  font-size: 1.3rem;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-  flex-shrink: 0;
-}
-.catalog-item:hover .catalog-icon-box {
-  background: var(--blue);
-  color: #ffffff;
-}
-.catalog-info h4 {
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--dark);
-  margin-bottom: 2px;
-}
-.catalog-info p {
-  font-size: 0.78rem;
-  color: var(--muted);
-}
 
 /* ── ABOUT ── */
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
@@ -534,8 +478,7 @@ footer{background:var(--dark);padding:70px 6% 28px;color:rgba(255,255,255,.5)}
     <ul class="nav-menu">
       <li class="active"><a href="#">Home</a></li>
       <li><a href="#about">About Us</a></li>
-      <li><a href="#services">Categories</a></li>
-      <li><a href="#catalog">Our Products</a></li>
+      <li><a href="#services">Products</a></li>
       <li><a href="#clients">Who We Serve</a></li>
       <li><a href="#gallery">Gallery</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -552,8 +495,7 @@ footer{background:var(--dark);padding:70px 6% 28px;color:rgba(255,255,255,.5)}
     <button class="mobile-close" onclick="document.getElementById('mobileMenu').classList.remove('open')">✕</button>
     <a href="#">Home</a>
     <a href="#about">About Us</a>
-    <a href="#services">Categories</a>
-    <a href="#catalog">Our Products</a>
+    <a href="#services">Products</a>
     <a href="#clients">Who We Serve</a>
     <a href="#gallery">Gallery</a>
     <a href="#contact">Contact</a>
@@ -569,7 +511,7 @@ footer{background:var(--dark);padding:70px 6% 28px;color:rgba(255,255,255,.5)}
     <h1>Your Trusted Partner in <span>Medical Supplies</span></h1>
     <p>Medio Medical Supply delivers precision-quality medical equipment, consumables, and healthcare solutions to hospitals, clinics, and professionals across Kenya and internationally.</p>
     <div class="hero-ctas">
-      <a href="#catalog" class="btn-primary"><i class="fa fa-box-open"></i> Our Products</a>
+      <a href="#services" class="btn-primary"><i class="fa fa-box-open"></i> Our Products</a>
       <a href="#contact" class="btn-outline">Book Appointment</a>
     </div>
   </div>
@@ -585,10 +527,10 @@ footer{background:var(--dark);padding:70px 6% 28px;color:rgba(255,255,255,.5)}
   <div class="services-top reveal">
     <div>
       <span class="sec-label">What We Offer</span>
-      <h2 class="sec-title">Core Classifications</h2>
+      <h2 class="sec-title">Our Product Categories</h2>
       <p class="sec-desc">We supply medical equipment, install and service equipment, and advise and train customers on use — meeting every healthcare need with precision.</p>
     </div>
-    <a href="#catalog" class="btn-primary">View Full Catalog <i class="fa fa-arrow-right"></i></a>
+    <a href="#contact" class="btn-primary">Request a Quote <i class="fa fa-arrow-right"></i></a>
   </div>
   <div class="services-grid">
     <div class="service-card reveal">
@@ -597,7 +539,7 @@ footer{background:var(--dark);padding:70px 6% 28px;color:rgba(255,255,255,.5)}
         <div class="service-icon"><i class="fa fa-stethoscope"></i></div>
         <h3>Medical Equipment</h3>
         <p>Surgical instruments, diagnostic tools, patient monitoring systems, and advanced imaging devices from globally certified manufacturers.</p>
-        <a href="#catalog" class="read-more">Read More <i class="fa fa-arrow-right"></i></a>
+        <a href="#contact" class="read-more">Read More <i class="fa fa-arrow-right"></i></a>
       </div>
     </div>
     <div class="service-card reveal">
@@ -606,7 +548,7 @@ footer{background:var(--dark);padding:70px 6% 28px;color:rgba(255,255,255,.5)}
         <div class="service-icon"><i class="fa fa-hand-holding-medical"></i></div>
         <h3>Medical Consumables</h3>
         <p>High-quality bandages, gloves, syringes, IV supplies, and personal protective equipment (PPE) for every clinical setting.</p>
-        <a href="#catalog" class="read-more">Read More <i class="fa fa-arrow-right"></i></a>
+        <a href="#contact" class="read-more">Read More <i class="fa fa-arrow-right"></i></a>
       </div>
     </div>
     <div class="service-card reveal">
@@ -615,7 +557,7 @@ footer{background:var(--dark);padding:70px 6% 28px;color:rgba(255,255,255,.5)}
         <div class="service-icon"><i class="fa fa-hospital"></i></div>
         <h3>Hospital Supplies</h3>
         <p>Bed linens, medical carts, sterilization products, hospital furniture, and facility management essentials for healthcare facilities.</p>
-        <a href="#catalog" class="read-more">Read More <i class="fa fa-arrow-right"></i></a>
+        <a href="#contact" class="read-more">Read More <i class="fa fa-arrow-right"></i></a>
       </div>
     </div>
     <div class="service-card reveal">
@@ -624,7 +566,7 @@ footer{background:var(--dark);padding:70px 6% 28px;color:rgba(255,255,255,.5)}
         <div class="service-icon"><i class="fa fa-house-medical"></i></div>
         <h3>Home & Rehab Care</h3>
         <p>Wheelchairs, mobility aids, respiratory care devices, wound care solutions, and home patient monitoring equipment.</p>
-        <a href="#catalog" class="read-more">Read More <i class="fa fa-arrow-right"></i></a>
+        <a href="#contact" class="read-more">Read More <i class="fa fa-arrow-right"></i></a>
       </div>
     </div>
     <div class="service-card reveal">
@@ -633,7 +575,7 @@ footer{background:var(--dark);padding:70px 6% 28px;color:rgba(255,255,255,.5)}
         <div class="service-icon"><i class="fa fa-pills"></i></div>
         <h3>Pharmaceuticals</h3>
         <p>Essential medicines and pharmaceutical consumables supplied with full traceability, cold-chain integrity and regulatory compliance.</p>
-        <a href="#catalog" class="read-more">Read More <i class="fa fa-arrow-right"></i></a>
+        <a href="#contact" class="read-more">Read More <i class="fa fa-arrow-right"></i></a>
       </div>
     </div>
     <div class="service-card reveal">
@@ -642,146 +584,9 @@ footer{background:var(--dark);padding:70px 6% 28px;color:rgba(255,255,255,.5)}
         <div class="service-icon"><i class="fa fa-flask"></i></div>
         <h3>Laboratory Supplies</h3>
         <p>Lab reagents, test kits, specimen containers, and analytical instruments for clinical, research, and diagnostic laboratories.</p>
-        <a href="#catalog" class="read-more">Read More <i class="fa fa-arrow-right"></i></a>
+        <a href="#contact" class="read-more">Read More <i class="fa fa-arrow-right"></i></a>
       </div>
     </div>
-  </div>
-</section>
-
-<section class="product-catalog" id="catalog">
-  <div class="reveal" style="text-align: center; margin-bottom: 2rem;">
-    <span class="sec-label">Inventory Catalog</span>
-    <h2 class="sec-title">Our Products</h2>
-    <p class="sec-desc" style="margin: 0 auto;">Select from our comprehensive list of clinical machinery, protective equipment, surgical units, and essential hospital infrastructure products.</p>
-  </div>
-
-  <div class="catalog-grid">
-    <a href="#contact" class="catalog-item reveal">
-      <div class="catalog-icon-box"><i class="fa fa-bed"></i></div>
-      <div class="catalog-info">
-        <h4>Hospital Furniture</h4>
-        <p>ICU beds, examination tables, trolleys</p>
-      </div>
-    </a>
-    <a href="#contact" class="catalog-item reveal">
-      <div class="catalog-icon-box"><i class="fa fa-box-tissue"></i></div>
-      <div class="catalog-info">
-        <h4>Medical Consumables</h4>
-        <p>Syringes, gauze, catheters, tubing</p>
-      </div>
-    </a>
-    <a href="#contact" class="catalog-item reveal">
-      <div class="catalog-icon-box"><i class="fa fa-tooth"></i></div>
-      <div class="catalog-info">
-        <h4>Dental Equipment</h4>
-        <p>Dental chairs, scalers, curing lights</p>
-      </div>
-    </a>
-    <a href="#contact" class="catalog-item reveal">
-      <div class="catalog-icon-box"><i class="fa fa-baby"></i></div>
-      <div class="catalog-info">
-        <h4>OB/GYN Equipment</h4>
-        <p>Fetal monitors, colposcopes, delivery beds</p>
-      </div>
-    </a>
-    <a href="#contact" class="catalog-item reveal">
-      <div class="catalog-icon-box"><i class="fa fa-microscope"></i></div>
-      <div class="catalog-info">
-        <h4>Laboratory Equipment</h4>
-        <p>Centrifuges, analyzers, microscopes</p>
-      </div>
-    </a>
-    <a href="#contact" class="catalog-item reveal">
-      <div class="catalog-icon-box"><i class="fa fa-kit-medical"></i></div>
-      <div class="catalog-info">
-        <h4>First-Aid Products</h4>
-        <p>Trauma kits, splints, emergency bandages</p>
-      </div>
-    </a>
-    <a href="#contact" class="catalog-item reveal">
-      <div class="catalog-icon-box"><i class="fa fa-eye"></i></div>
-      <div class="catalog-info">
-        <h4>Ophthalmic Equipment</h4>
-        <p>Refractors, slit lamps, ophthalmoscopes</p>
-      </div>
-    </a>
-    <a href="#contact" class="catalog-item reveal">
-      <div class="catalog-icon-box"><i class="fa fa-x-ray"></i></div>
-      <div class="catalog-info">
-        <h4>Radiology & Imaging</h4>
-        <p>X-Ray machinery, ultrasound scanners</p>
-      </div>
-    </a>
-    <a href="#contact" class="catalog-item reveal">
-      <div class="catalog-icon-box"><i class="fa fa-head-side-mask"></i></div>
-      <div class="catalog-info">
-        <h4>Personal Protective (PPE)</h4>
-        <p>Surgical gowns, N95 masks, gloves</p>
-      </div>
-    </a>
-    <a href="#contact" class="catalog-item reveal">
-      <div class="catalog-icon-box"><i class="fa fa-droplet"></i></div>
-      <div class="catalog-info">
-        <h4>Hemodialysis Equipment</h4>
-        <p>Dialysis machines, fluid filters, lines</p>
-      </div>
-    </a>
-    <a href="#contact" class="catalog-item reveal">
-      <div class="catalog-icon-box"><i class="fa fa-child-anatomy"></i></div>
-      <div class="catalog-info">
-        <h4>Medical Human Models</h4>
-        <p>Anatomical training manikins, models</p>
-      </div>
-    </a>
-    <a href="#contact" class="catalog-item reveal">
-      <div class="catalog-icon-box"><i class="fa fa-ear-deaf"></i></div>
-      <div class="catalog-info">
-        <h4>ENT Equipment</h4>
-        <p>Otoscopes, audiometers, sinus scopes</p>
-      </div>
-    </a>
-    <a href="#contact" class="catalog-item reveal">
-      <div class="catalog-icon-box"><i class="fa fa-vial-virus"></i></div>
-      <div class="catalog-info">
-        <h4>In-Vitro Diagnostics</h4>
-        <p>Rapid test strips, PCR kits, biochemistry</p>
-      </div>
-    </a>
-    <a href="#contact" class="catalog-item reveal">
-      <div class="catalog-icon-box"><i class="fa fa-temperature-arrow-up"></i></div>
-      <div class="catalog-info">
-        <h4>Sterilizer (Autoclave)</h4>
-        <p>Steam sterilizers, heat chambers</p>
-      </div>
-    </a>
-    <a href="#contact" class="catalog-item reveal">
-      <div class="catalog-icon-box"><i class="fa fa-heart-pulse"></i></div>
-      <div class="catalog-info">
-        <h4>Diagnostic Equipment</h4>
-        <p>ECG machines, BP gauges, pulse oximeters</p>
-      </div>
-    </a>
-    <a href="#contact" class="catalog-item reveal">
-      <div class="catalog-icon-box"><i class="fa fa-paw"></i></div>
-      <div class="catalog-info">
-        <h4>Veterinary Equipment</h4>
-        <p>Animal scales, vet monitors, grooming</p>
-      </div>
-    </a>
-    <a href="#contact" class="catalog-item reveal">
-      <div class="catalog-icon-box"><i class="fa fa-crutch"></i></div>
-      <div class="catalog-info">
-        <h4>Walking Aids</h4>
-        <p>Crutches, rollators, quad canes, frames</p>
-      </div>
-    </a>
-    <a href="#contact" class="catalog-item reveal">
-      <div class="catalog-icon-box"><i class="fa fa-heart-crack"></i></div>
-      <div class="catalog-info">
-        <h4>Operating Theatre Units</h4>
-        <p>Surgical lights, ventilation devices</p>
-      </div>
-    </a>
   </div>
 </section>
 
@@ -943,7 +748,7 @@ footer{background:var(--dark);padding:70px 6% 28px;color:rgba(255,255,255,.5)}
   <p>To be a global leader in medical supplies — providing accessible, high-quality products that empower healthcare professionals and improve patient outcomes worldwide.</p>
   <div class="cta-btns">
     <a href="#contact" class="btn-white">Book an Appointment</a>
-    <a href="#catalog" class="btn-woutline">Browse Products</a>
+    <a href="#services" class="btn-woutline">Browse Products</a>
   </div>
 </div>
 
@@ -1027,20 +832,20 @@ footer{background:var(--dark);padding:70px 6% 28px;color:rgba(255,255,255,.5)}
     <div class="footer-col">
       <h5>Products</h5>
       <ul>
-        <li><a href="#catalog">Medical Equipment</a></li>
-        <li><a href="#catalog">Consumables</a></li>
-        <li><a href="#catalog">Hospital Supplies</a></li>
-        <li><a href="#catalog">Home Care</a></li>
-        <li><a href="#catalog">Pharmaceuticals</a></li>
-        <li><a href="#catalog">Lab Supplies</a></li>
+        <li><a href="#services">Medical Equipment</a></li>
+        <li><a href="#services">Consumables</a></li>
+        <li><a href="#services">Hospital Supplies</a></li>
+        <li><a href="#services">Home Care</a></li>
+        <li><a href="#services">Pharmaceuticals</a></li>
+        <li><a href="#services">Lab Supplies</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h5>Company</h5>
       <ul>
         <li><a href="#about">About Us</a></li>
-        <li><a href="#services">Categories</a></li>
-        <li><a href="#catalog">Our Products</a></li>
+        <li><a href="#clients">Who We Serve</a></li>
+        <li><a href="#gallery">Gallery</a></li>
         <li><a href="#contact">Contact Us</a></li>
         <li><a href="#contact">Book Appointment</a></li>
       </ul>
